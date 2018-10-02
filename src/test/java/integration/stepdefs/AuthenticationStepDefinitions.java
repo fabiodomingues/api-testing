@@ -30,6 +30,12 @@ public class AuthenticationStepDefinitions {
         apiTestContext.setJsonToRequest(withJsonContaining(map.get("username"), map.get("password")));
     }
 
+    @Given("^I use the following credentials$")
+    public void and_i_use_the_following_credentials(DataTable dataTable) {
+        Map<String, String> map = dataTable.asMap(String.class, String.class);
+        apiTestContext.setJsonToRequest(withJsonContaining(map.get("username"), map.get("password")));
+    }
+
     @When("^I call the login api$")
     public void when_call_registration_api() {
         apiTestContext.setResponse(apiTestContext.getRequest().when().post("/v1/login"));

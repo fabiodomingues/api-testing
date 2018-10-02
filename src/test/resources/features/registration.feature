@@ -9,7 +9,7 @@ Feature: Registration
       | name      | John Doe  |
       | username  | john.doe  |
       | password  | j04n!@    |
-    When I call the login api
+    When I call the registration api
     Then the status code of response should be 201
     And content type should be in JSON format
     And response body attribute id should not be null
@@ -23,7 +23,7 @@ Feature: Registration
       | name      | Alice  |
       | username  | alice  |
       | password  | aa123  |
-    When I call the login api
+    When I call the registration api
     Then the status code of response should be 400
     And content type should be in JSON format
     And response body attribute message should be equals "Username already in use."
