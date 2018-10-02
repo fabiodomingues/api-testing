@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'br.com.fd'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile "org.hamcrest:java-hamcrest:2.0.0.0"
+    testCompile "junit:junit:4.12"
+    testCompile "org.mockito:mockito-all:1.10.19"
+    testCompile "org.assertj:assertj-core:3.6.2"
+    testCompile 'io.cucumber:cucumber-java:3.0.2'
+    testCompile 'io.cucumber:cucumber-junit:3.0.2'
+    testCompile 'io.rest-assured:rest-assured:3.1.1'
+
+    compile "com.sparkjava:spark-core:2.7.2"
+    compile "org.slf4j:slf4j-application:1.8.0-beta2"
+    compile "org.slf4j:slf4j-simple:1.8.0-beta2"
+    compile "org.apache.commons:commons-lang3:3.8.1"
+    compile "com.eclipsesource.minimal-json:minimal-json:0.9.4"
+}
