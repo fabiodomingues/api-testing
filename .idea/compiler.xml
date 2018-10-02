@@ -6,6 +6,8 @@
       <module name="api-testing_main" target="1.8" />
       <module name="api-testing_test" target="1.8" />
       <module name="api-testing_testIntegration" target="1.8" />
+      <module name="application-testing_main" target="1.8" />
+      <module name="application-testing_test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -11,6 +11,10 @@ public class UserRepositoryTest {
     private static final User ALICE = aUser().withUsername("Alice").build();
     private static final User CHARLIE = aUser().withUsername("Charlie").build();
 
+    private static final UserCredentials ALICE_CREDENTIALS = new UserCredentials(ALICE.getUsername(), ALICE.getPassword());
+    private static final UserCredentials CHARLIE_CREDENTIALS = new UserCredentials(CHARLIE.getUsername(), CHARLIE.getPassword());
+    private static final UserCredentials UNKNOWN_CREDENTIALS = new UserCredentials("unknown", "unknown");
+
     private UserRepository userRepository;
 
     @Before
@@ -32,6 +36,16 @@ public class UserRepositoryTest {
         userRepository.add(CHARLIE);
 
         assertThat(userRepository.all()).containsExactly(ALICE, CHARLIE);
+    }
+
+    @Test
+    public void should_return_user_matching_valid_credentials() {
+        userRepository.add(ALICE);
+        userRepository.add(CHARLIE);
+
+        assertThat(userRepository.userFor(ALICE_CREDENTIALS)).contains(ALICE);
+        assertThat(userRepository.userFor(CHARLIE_CREDENTIALS)).contains(CHARLIE);
+        assertThat(userRepository.userFor(UNKNOWN_CREDENTIALS)).isEmpty();
     }
 
 }

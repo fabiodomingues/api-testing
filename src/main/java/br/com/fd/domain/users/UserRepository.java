@@ -2,6 +2,7 @@ package br.com.fd.domain.users;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.Collections.unmodifiableList;
 
@@ -21,4 +22,9 @@ public class UserRepository {
         return unmodifiableList(users);
     }
 
+    public Optional<User> userFor(UserCredentials userCredentials) {
+        return users.stream()
+                .filter(userCredentials::matches)
+                .findFirst();
+    }
 }

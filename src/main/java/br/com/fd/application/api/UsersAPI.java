@@ -36,7 +36,11 @@ public class UsersAPI {
             return jsonFor(user);
         } catch (UsernameAlreadyInUseException e) {
             response.status(BAD_REQUEST_400);
-            return "Username already in use.";
+            response.type("application/json");
+
+            return new JsonObject()
+                    .add("message", "Username already in use.")
+                    .toString();
         }
     }
 

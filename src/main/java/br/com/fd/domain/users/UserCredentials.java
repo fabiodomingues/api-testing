@@ -3,20 +3,13 @@ package br.com.fd.domain.users;
 import static org.apache.commons.lang3.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
 
-public class RegistrationData {
-
-    private final String name;
+public class UserCredentials {
     private final String username;
     private final String password;
 
-    public RegistrationData(String name, String username, String password) {
-        this.name = name;
+    public UserCredentials(String username, String password) {
         this.username = username;
         this.password = password;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public String getUsername() {
@@ -25,6 +18,10 @@ public class RegistrationData {
 
     public String getPassword() {
         return password;
+    }
+
+    public boolean matches(User user) {
+        return username.equals(user.getUsername()) && password.equals(user.getPassword());
     }
 
     @Override
@@ -36,4 +33,5 @@ public class RegistrationData {
     public int hashCode() {
         return reflectionHashCode(this);
     }
+
 }

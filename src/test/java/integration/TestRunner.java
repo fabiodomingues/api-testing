@@ -13,8 +13,6 @@ import org.junit.runner.RunWith;
         features = {"classpath:features"})
 public class TestRunner {
 
-    public static String BASE_URL = "http://localhost:8080";
-
     private static Application application;
 
     @BeforeClass
