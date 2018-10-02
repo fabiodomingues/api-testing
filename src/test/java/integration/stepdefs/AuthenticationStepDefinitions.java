@@ -32,7 +32,7 @@ public class AuthenticationStepDefinitions {
 
     @When("^I call the login api$")
     public void when_call_registration_api() {
-        apiTestContext.getRequest().when().post("/v1/login");
+        apiTestContext.setResponse(apiTestContext.getRequest().when().post("/v1/login"));
     }
 
     private String withJsonContaining(String username, String password) {

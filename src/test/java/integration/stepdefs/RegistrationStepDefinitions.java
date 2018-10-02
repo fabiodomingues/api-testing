@@ -39,7 +39,7 @@ public class RegistrationStepDefinitions {
 
     @When("^I call the registration api$")
     public void when_call_registration_api() {
-        apiTestContext.getRequest().when().post("/v1/users");
+        apiTestContext.setResponse(apiTestContext.getRequest().when().post("/v1/users"));
     }
 
     private String withJsonContaining(String name, String username, String password) {
